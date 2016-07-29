@@ -1,0 +1,14 @@
+#!/bin/bash
+
+HOSTNAME="${COLLECTD_HOSTNAME:-`hostname -f`}"
+INTERVAL="${COLLECTD_INTERVAL:-10}"
+
+TIMEOUT=2
+
+while sleep "$INTERVAL"; do
+	TS=`date +%s`
+	/usr/bin/curl -X GET -m $TIMEOUT -H "Authorization: Bearer <%= @api_key %>" http://127.0.0.1:3001/api/endpoints 2> /dev/null > /dev/null
+	STAT=$?
+	echo "PUTVAL $HOSTNAME/http_page_load-worldping_api/current $TS:$STAT"
+done
+
