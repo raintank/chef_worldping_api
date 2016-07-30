@@ -19,5 +19,6 @@
 
 include_recipe "chef_base::default"
 include_recipe "chef_task_server::default"
+include_recipe "chef_worldping_api::nginx"
 include_recipe "chef_worldping_api::install"
 include_recipe "chef_worldping_api::collectd"

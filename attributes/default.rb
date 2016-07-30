@@ -14,12 +14,13 @@ default[:chef_worldping_api]['static_root'] = 'public'
 ### SERVER ###
 default[:chef_worldping_api]['port'] = '3000'
 default[:chef_worldping_api]['protocol'] = 'http'
-default[:chef_worldping_api]['domain'] = node[:raintank_stack][:worldping_domain]
+default[:chef_worldping_api]['domain'] = "localhost"
 default[:chef_worldping_api]['app_mode'] = 'production'
 default[:chef_worldping_api]['root_url'] = '%(protocol)s://%(domain)s:%(http_port)s/'
 default[:chef_worldping_api]['router_logging'] = false
 default[:chef_worldping_api]['enable_gzip'] = false
 default[:chef_worldping_api]['admin_key'] = 'changeme'
+default[:chef_worldping_api]['backend'] = "localhost:3001"
 
 ### DB ###
 default[:chef_worldping_api]['db_type'] = 'sqlite3' # Either mysql, postgres, or sqlite3
@@ -91,3 +92,9 @@ default[:chef_worldping_api]['quota']['org_endpoint'] = 10
 default[:chef_worldping_api]['quota']['org_probe'] = 10
 default[:chef_worldping_api]['quota']['global_endpoint'] = -1
 default[:chef_worldping_api]['quota']['global_probe'] = -1
+
+# nginx
+default[:chef_worldping_api][:nginx][:use_ssl] = false
+default[:chef_worldping_api][:nginx][:ssl_cert_file] = "/etc/nginx/ssl/grafana.crt"
+default[:chef_worldping_api][:nginx][:ssl_key_file] = "/etc/nginx/ssl/grafana.key"
+default[:chef_worldping_api][:nginx][:ssl_data_bag] = node[:chef_worldping_api][:domain]
