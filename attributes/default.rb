@@ -101,4 +101,4 @@ default[:chef_worldping_api][:nginx][:ssl_key_file] = "/etc/nginx/ssl/grafana.ke
 default[:chef_worldping_api][:nginx][:ssl_data_bag] = node[:chef_worldping_api][:domain]
 
 # metric publishing
-default[:chef_worldping_api][:kafka_host] = localhost
+default[:chef_worldping_api][:kafka_host] = "localhost"
