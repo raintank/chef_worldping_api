@@ -1,4 +1,5 @@
 ############ Worldping-api 
+override[:use_statsd] = true
 
 ### INSTALL ###
 default[:chef_worldping_api]['user'] = 'grafana'
@@ -12,7 +13,7 @@ default[:chef_worldping_api]['data_dir'] = '/var/lib/grafana'
 default[:chef_worldping_api]['static_root'] = 'public'
 
 ### SERVER ###
-default[:chef_worldping_api]['port'] = '3000'
+default[:chef_worldping_api]['port'] = '3001'
 default[:chef_worldping_api]['protocol'] = 'http'
 default[:chef_worldping_api]['domain'] = "localhost"
 default[:chef_worldping_api]['app_mode'] = 'production'
