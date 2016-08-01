@@ -89,8 +89,8 @@ default[:chef_worldping_api]['alerting']['individual_alerts'] = false
 
 ### QUOTAS
 default[:chef_worldping_api]['quota']['enabled'] = true
-default[:chef_worldping_api]['quota']['org_endpoint'] = 10
-default[:chef_worldping_api]['quota']['org_probe'] = 10
+default[:chef_worldping_api]['quota']['org_endpoint'] = 3
+default[:chef_worldping_api]['quota']['org_probe'] = 3
 default[:chef_worldping_api]['quota']['global_endpoint'] = -1
 default[:chef_worldping_api]['quota']['global_probe'] = -1
 
