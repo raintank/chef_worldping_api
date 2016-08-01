@@ -177,11 +177,12 @@ global_probe =  <%= node[:chef_worldping_api]['quota']['global_probe'] %>
 
 [metric_publisher]
 enabled = true
-nsqd_addr = localhost:4150
-topic = metrics
+broker = <%= @kafka_host %>:9092
+topic = mdm
+compression = none
 
-[collector_event_publisher]
+[event_publisher]
 enabled = true
-nsqd_addr = localhost:4150
-topic = probe_events
-
+broker = <%= @kafka_host %>:9092
+topic = events
+compression = none

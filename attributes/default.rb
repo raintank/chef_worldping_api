@@ -99,3 +99,6 @@ default[:chef_worldping_api][:nginx][:use_ssl] = false
 default[:chef_worldping_api][:nginx][:ssl_cert_file] = "/etc/nginx/ssl/grafana.crt"
 default[:chef_worldping_api][:nginx][:ssl_key_file] = "/etc/nginx/ssl/grafana.key"
 default[:chef_worldping_api][:nginx][:ssl_data_bag] = node[:chef_worldping_api][:domain]
+
+# metric publishing
+default[:chef_worldping_api][:kafka_host] = localhost

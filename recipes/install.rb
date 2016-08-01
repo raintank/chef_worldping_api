@@ -61,6 +61,7 @@ elasticsearch_host = find_haproxy || node['grafana']['elasticsearch_host']
 db_host = find_haproxy || node['grafana']['db_host']
 rabbitmq_host = find_haproxy || node['grafana']['rabbitmq_host']
 graphite_host = find_haproxy || node['grafana']['graphite_host']
+kafka_host = find_haproxy || node['chef_worldping_api']['kafka_host']
 
 node.default[:chef_worldping_api]['instance_id'] = node['hostname']
 
@@ -73,7 +74,8 @@ template "/etc/raintank/worldping-api.ini" do
     db_host: db_host,
     elasticsearch_host: elasticsearch_host,
     rabbitmq_host: rabbitmq_host,
-    graphite_host: graphite_host
+    graphite_host: graphite_host,
+    kafka_host: kafka_host
   })
   notifies :restart, 'service[worldping-api]', :delayed
 end
