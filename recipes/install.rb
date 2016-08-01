@@ -80,5 +80,4 @@ template "/etc/raintank/worldping-api.ini" do
   notifies :restart, 'service[worldping-api]', :delayed
 end
 
-
-
+tag("worldping_api")
