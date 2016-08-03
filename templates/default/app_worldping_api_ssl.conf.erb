@@ -54,7 +54,7 @@ server {
 # TODO: allow for listening on HTTPS, upgrading the connection for non-SSL.
 server {
   listen 443 default ssl; # for Linux
-  server_name <%= node['chef_worldping_api']['domain'] %>;
+  server_name <%= node['chef_worldping_api']['domain'] %> <%= node['chef_worldping_api']['aliases'].join(' ') %>;
 
   ssl_certificate <%= node['chef_worldping_api']['nginx']['ssl_cert_file'] %>;
   ssl_certificate_key <%= node['chef_worldping_api']['nginx']['ssl_key_file'] %>;
@@ -107,7 +107,7 @@ server {
 
 server {
   listen 443; # for Linux
-  server_name <%= node['chef_task_server']['domain'] %>;
+  server_name <%= node['chef_task_server']['domain'] %> <%= node['chef_task_server']['aliases'].join(' ') %>;
 
   ssl_certificate <%= node['chef_worldping_api']['nginx']['ssl_cert_file'] %>;
   ssl_certificate_key <%= node['chef_worldping_api']['nginx']['ssl_key_file'] %>;

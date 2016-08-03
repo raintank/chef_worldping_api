@@ -16,6 +16,7 @@ default[:chef_worldping_api]['static_root'] = 'public'
 default[:chef_worldping_api]['port'] = '3001'
 default[:chef_worldping_api]['protocol'] = 'http'
 default[:chef_worldping_api]['domain'] = "localhost"
+default[:chef_worldping_api]['aliases'] = []
 default[:chef_worldping_api]['app_mode'] = 'production'
 default[:chef_worldping_api]['root_url'] = '%(protocol)s://%(domain)s:%(http_port)s/'
 default[:chef_worldping_api]['router_logging'] = false
