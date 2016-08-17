@@ -16,7 +16,7 @@ packagecloud_repo node[:chef_base][:packagecloud_repo] do
   type "deb"
 end
 
-pkg_version = node['chef_worldping_api']['package_version']
+pkg_version = node['chef_worldping_api']['version']
 pkg_action = if pkg_version.nil?
   :upgrade
 else
