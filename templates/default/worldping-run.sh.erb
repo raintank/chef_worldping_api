@@ -4,11 +4,15 @@ HOSTNAME="${COLLECTD_HOSTNAME:-`hostname -f`}"
 INTERVAL="${COLLECTD_INTERVAL:-10}"
 
 TIMEOUT=2
+MONITOR_ID=20
 
 while sleep "$INTERVAL"; do
 	TS=`date +%s`
 	/usr/bin/curl -X GET -m $TIMEOUT -H "Authorization: Bearer <%= @api_key %>" http://127.0.0.1:3001/api/endpoints 2> /dev/null > /dev/null
 	STAT=$?
 	echo "PUTVAL $HOSTNAME/http_page_load-worldping_api/current $TS:$STAT"
+	/usr/bin/curl -X GET -m $TIMEOUT -H "Authorization: Bearer eyJrIjoiZlc3MTZBczZReDN2STBvQmV5cHdSUlRrdjRDVklFcHQiLCJuIjoiY29sbGVjdG9ycyIsImlkIjoxfQ==" http://127.0.0.1:3001/api/monitors?endpoint_id=$MONITOR_ID 2> /dev/null > /dev/null
+        STAT=$?
+        echo "PUTVAL $HOSTNAME/http_page_load-worldping_api-monitor/current $TS:$STAT"
 done
 
