@@ -90,6 +90,7 @@ pre_amqp_jobqueue_size = <%= node[:chef_worldping_api]['alerting']['pre_amqp_job
 executor_lru_size = <%= node[:chef_worldping_api]['alerting']['executor_lru_size'] %>
 enable_scheduler = <%= node[:chef_worldping_api]['alerting']['enable_scheduler'] %>
 write_individual_alert_results = <%= node[:chef_worldping_api]['alerting']['individual_alerts'] %>
+graphite_url = http://<%= @graphite_host %>:<%= node[:chef_worldping_api][:alerting]['graphite_port'] %>/
 
 #################################### Logging ##########################
 [log]

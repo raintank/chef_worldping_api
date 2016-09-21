@@ -86,6 +86,8 @@ default[:chef_worldping_api]['alerting']['executor_lru_size'] = 10000
 default[:chef_worldping_api]['alerting']['enable_scheduler'] = false
 default[:chef_worldping_api]['alerting']['executors'] = 10
 default[:chef_worldping_api]['alerting']['individual_alerts'] = false
+default[:chef_worldping_api]['alerting']['graphite_host'] = 'localhost'
+default[:chef_worldping_api]['alerting']['graphite_port'] = 8888
 
 ### QUOTAS
 default[:chef_worldping_api]['quota']['enabled'] = true
