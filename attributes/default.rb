@@ -16,6 +16,7 @@ default[:chef_worldping_api]['static_root'] = 'public'
 default[:chef_worldping_api]['port'] = '3001'
 default[:chef_worldping_api]['protocol'] = 'http'
 default[:chef_worldping_api]['domain'] = "localhost"
+default[:chef_worldping_api]['aliases'] = []
 default[:chef_worldping_api]['app_mode'] = 'production'
 default[:chef_worldping_api]['root_url'] = '%(protocol)s://%(domain)s:%(http_port)s/'
 default[:chef_worldping_api]['router_logging'] = false
@@ -91,8 +92,8 @@ default[:chef_worldping_api]['alerting']['graphite_port'] = 8888
 
 ### QUOTAS
 default[:chef_worldping_api]['quota']['enabled'] = true
-default[:chef_worldping_api]['quota']['org_endpoint'] = 10
-default[:chef_worldping_api]['quota']['org_probe'] = 10
+default[:chef_worldping_api]['quota']['org_endpoint'] = 3
+default[:chef_worldping_api]['quota']['org_probe'] = 3
 default[:chef_worldping_api]['quota']['global_endpoint'] = -1
 default[:chef_worldping_api]['quota']['global_probe'] = -1
 

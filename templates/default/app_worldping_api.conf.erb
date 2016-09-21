@@ -27,7 +27,7 @@ server {
 # TODO: allow for listening on HTTPS, upgrading the connection for non-SSL.
 server {
   listen 80 default deferred; # for Linux
-  server_name <%= node['chef_worldping_api']['domain'] %>;
+  server_name <%= node['chef_worldping_api']['domain'] %> <%= node['chef_worldping_api']['aliases'].join(' ') %>;
 
   # allow only valid crud methods
   if ($request_method !~ GET|POST|PUT|DELETE|PATCH) {
@@ -73,7 +73,7 @@ server {
 # TODO: allow for listening on HTTPS, upgrading the connection for non-SSL.
 server {
   listen 80; # for Linux
-  server_name <%= node['chef_task_server']['domain'] %>;
+  server_name <%= node['chef_task_server']['domain'] %> <%= node['chef_task_server']['aliases'].join(' ') %>;
 
   # allow only valid crud methods
   if ($request_method !~ GET|POST|PUT|DELETE|PATCH) {
