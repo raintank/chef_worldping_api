@@ -1,6 +1,9 @@
 include_recipe 'nginx::repo'
 include_recipe 'nginx'
 
+include_recipe 'chef_base::ssl_updates'
+include_recipe 'chef_base::dhparams'
+
 # create ssl cert files if we're doing that
 if node['chef_worldping_api']['nginx']['use_ssl']
   directory "/etc/nginx/ssl" do
